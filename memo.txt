@@ -1,0 +1,65 @@
+■Flaskの特徴
+
+- 軽量Webアプリケーションフレームワーク。標準で提供する機能を最小限に絞る
+- Python用Webアクセスライブラリに、Werkzeug WSGIツールキットを採用
+- テンプレートエンジンとしてJinja2を採用
+- Flask extensionsによる機能拡張
+
+
+Anaconda install Flask
+# To install this package with conda run one of the following:
+conda install -c conda-forge flask-markdown
+conda install -c conda-forge/label/gcc7 flask-markdown
+conda install -c conda-forge/label/cf201901 flask-markdown
+
+# To install this package with conda run one of the following:
+conda install -c conda-forge flask-sqlalchemy
+conda install -c conda-forge/label/gcc7 flask-sqlalchemy
+conda install -c conda-forge/label/cf201901 flask-sqlalchemy
+
+python -m pip install cx_Oracle --upgrade
+python3 -m pip install PyMySQL
+
+conda install -c auto flask-mysql
+conda install binstar binstar search -t conda mysql-python
+conda install -c anaconda mysql-python
+conda install -c https://conda.anaconda.org/anaconda mysql-connector-python
+
+# SQLALCHEMY_TRACK_MODIFICATIONS->Falseへ設定
+# Flask_SQLAlchemyでDBアクセスする際にエラーとなるため必要
+set SQLALCHEMY_TRACK_MODIFICATIONS=False
+
+# Windows起動
+set FALSK_APP=xxx.py
+set FLASK_ENV=development
+flask run
+
+# Mac起動
+FALSK_APP=xxx.py FLASK_ENV=development flask run
+
+# myappの場合
+cd myapp
+set FALSK_APP=hello_flask.py
+set FLASK_ENV=development
+flask run
+
+# MySql
+DB:flaskdb
+User:flaskuser
+Pass:flaskuser
+
+mysql -u flaskuser -D flaskdb -p 
+
+--テーブル(表)を作成する
+CREATE TABLE posts (
+  id INT,
+  title VARCHAR(255),
+  content VARCHAR(3000),
+  CONSTRAINT pk1 PRIMARY KEY(id)
+);
+CREATE SEQUENCE posts_id
+START WITH 1;
+
+-- テーブルに権限付与する
+SCOTT というユーザーの所有する MY_TABLE を、TIGER というユーザーが SELECT、UPDATE、DELETE、INSERT できるよう権限付与してみます。
+GRANT SELECT,UPDATE,DELETE,INSERT ON SCOTT.MY_TABLE TO TIGER;
